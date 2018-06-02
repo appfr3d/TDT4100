@@ -23,42 +23,25 @@ Bruker standard scoring fra wikipedia
 All info ligger [her](https://en.wikipedia.org/wiki/Farkle)
 
 ## Oppsett ##
-Farkle
-* Er observable
-* Har en listen med spillere
-	* Bruk varargs i konstruktøren
-* Har en liste med lyttere
-// * Funksjon getPlayer(int)
-* Funksjon getPlayers()
-* Funksjon getPlayerCount()
-* Funksjon rollDice(int)
-* Funksjon calculatePossibilities(), hvilke muligheter man har, utifra terningene
-* Funksjon endTurn()
-* Funksjon nextTurn()
-* Funksjon getThreeInARowScore(), privat hjelpefunksjon
-* Funksjon getScoreForCombination(List<Integer>)
-* Funksjon getStringFromCombination(List<Integer>)
-* Funksjon fireScoresDidChange() 
-* Funksjon addScoreListener(ScoreListener)
-* Funksjon removeScoreListener(ScoreListener)
-
-Combinations
-* Har liste med lister av kombinasjoner som gir poeng
-* Funksjon getPosibleCombinations(), hvilke mulige poeng man kan få
-
-ScoreListener
-* Interface med funksjonen scoresDidChange
-
-FarkleGameMaster
+FarkleGameMaster (Kjør denne klassen for å spille)
 * Holder styr på et spill med Farkle
 * Har en Farkle variabel
 * Implementerer ScoreListener
 	* Altså: Funksjon scoresDidChange(), som caller checkGameOver()
 * Observerer på Farkle
 	* Hvis noen får poeng skal denne varsles
-* Funksjon checkGameOver()
-* Funksjon nextTurn()
-* Funksjon choosePlay(), hvilken av mulighetene fra calculatePossibleScores() man velger
+* Styrer spillet ved å få input fra spillere
+
+Farkle
+* Er observable, man kan lytte på scoren til spillerne
+* Holder styr på spillere, poengsummer, hvem sin tur det er og terninger
+* Regner ut poengsummer utifra terningkast
+
+ScoreListener
+* Interface med funksjonen scoresDidChange
+
+Combinations
+* Finner ut kombinasjoner som gir poeng ut ifra terningkast
 
 Dice
 * Funksjon rollDie() som returnerer et random tall mellom 1 og 6
@@ -66,8 +49,4 @@ Dice
 Player
 * Har et navn
 * Har en poengsum
-* Funksjon addScore(int)
-* Funksjon getScore()
-* Funksjon getName()
-
 
